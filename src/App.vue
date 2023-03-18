@@ -1,13 +1,18 @@
 <script setup>
-import { computed } from 'vue'
-import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { ref, computed } from 'vue'
+import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
 const route = useRoute()
+const router = useRouter()
+let data = ref([])
+fetch('/data.json').then(res => res.json())
+	.then(d => {
+		data.value = d
+		router.push('/')
+	})
 
-const { data } = window
-
-const activeData = computed(() => data.filter(e => e.id == route.meta.content_id))
+const activeData = computed(() => data.value.filter(e => e.id == route.meta.content_id))
 </script>
 
 <template>
@@ -25,6 +30,7 @@ const activeData = computed(() => data.filter(e => e.id == route.meta.content_id
       </nav>
 	  
 	  <div style="border: 1px solid #333; border-radius: 4px; padding: 8px; width: 100%; ">
+		
 		<p>Route Meta:</p>
 		<pre>{{ route.meta }}</pre>
 		<p>Active JSON Data:</p>
