@@ -6,16 +6,16 @@ const router = createRouter({
 })
 window.router = router
 
-let json = await fetch('/router.json')
-let routes = await json.json()
-routes.forEach(route => {
-	router.addRoute({
-		...route,
-		path: route.path,
-		component: () => import(`../views/${route.component}.vue`)
+fetch('/router.json')
+	.then(res => res.json())
+	.then(routes => {
+		routes.forEach(route => {
+			router.addRoute({
+				...route,
+				path: route.path,
+				component: () => import(`../views/${route.component}.vue`)
+			})
+		})
 	})
-})
-
-console.log(router)
 
 export default router
