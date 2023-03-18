@@ -10,8 +10,9 @@
     <div id="app"></div>
 	<script type="module">
 		window.data = []
-		let res = await fetch('/data.json')
-		window.data = await res.json()
+		fetch('/data.json')
+			.then(res => res.json())
+			.then(data => window.data = data)
 	</script>
     <script type="module" src="/src/main.js"></script>
   </body>
