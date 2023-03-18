@@ -1,0 +1,31 @@
+[
+	{
+		"path": "/",
+		"component": "HomeView",
+		"meta": {
+			"content_id": "home"
+		}
+	},
+	{
+		"path": "/about",
+		"component": "AboutView",
+		"meta": {
+			"content_id": "about"
+		}
+	},
+	{
+		"path": "/other",
+		"component": "OtherView",
+		"meta": {
+			"content_id": "other"
+		}
+	},
+	{
+		"path": "/cheese",
+		"component": "OtherView",
+		"meta": {
+			"content_id": "cheese"
+		}
+
+	}
+]
