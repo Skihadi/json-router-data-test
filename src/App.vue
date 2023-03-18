@@ -21,6 +21,7 @@ const activeData = computed(() => data.filter(e => e.id == route.meta.content_id
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
 		<RouterLink to="/other">Other</RouterLink>
+		<RouterLink to="/cheese">Cheese</RouterLink>
       </nav>
 	  
 	  <div style="border: 1px solid #333; border-radius: 4px; padding: 8px; width: 100%; ">
